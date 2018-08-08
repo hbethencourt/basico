@@ -1,17 +1,16 @@
-Respositorio
-git@github.com:hbethencourt/basico.git
+Repositorio
+https://github.com/hbethencourt/basico.git
 
-…or create a new repository on the command line
+Create a new repository on the command line
+======================================================================
 echo "# basico" >> README.md
 git init
 git add README.md
 git commit -m "first commit"
-git remote add origin git@github.com:hbethencourt/basico.git
+git remote add origin https://github.com/hbethencourt/basico.git
 git push -u origin master
 
-…or push an existing repository from the command line
-git remote add origin git@github.com:hbethencourt/basico.git
+Push an existing repository from the command line
+======================================================================
+git remote add origin https://github.com/hbethencourt/basico.git
 git push -u origin master
-
-…or import code from another repository
-You can initialize this repository with code from a Subversion, Mercurial, or TFS project.

@@ -1,0 +1,87 @@
+{% load static %}
+{% load icons %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block titulo %}{% endblock %}</title>    
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+    <!-- Estilos -->
+    <link href="{% static 'core/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'core/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'core/css/main.css' %}" rel="stylesheet">    
+    
+    <!-- Font Awesome CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    crossorigin="anonymous">
+
+    <!-- CSS para CKEDITOR -->
+    <link href="{% static 'core/css/custom_ckeditor.css' %}" rel="stylesheet">
+    
+    <!-- CSS personalizados por mi-->
+    <link href="{% static 'core/css/h.css' %}" rel="stylesheet">    
+</head>
+   <body>                             
+        <div class="container py-5">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6 mx-auto">
+                    
+                                        <!-- form card login -->
+                                        <div class="card rounded borde-1px-gray">
+                                            <div class="card-header" style="border-bottom: 1px solid gray !important;">
+                                                <h3 class="mb-0">Iniciar sesion
+                                                        <span class="float-right">  </span>
+                                                </h3>                                                                                                                                                        
+                                            </div>
+                                            <div class="card-body">
+                                                <form role="form" method="post" id='form_login' class="form" autocomplete="off"> {% csrf_token %}                                                                                                                                                  
+                                                    <div class="form-group">
+                                                        <label for="uname1">Usuario</label>
+                                                        <div class="input-group">
+                                                                <span class="btn btn-md"> {%icon 'user'%} </span>
+                                                                <input type="text" name="username" autofocus maxlength="254" required id="id_username" placeholder="usuario" class="form-control form-control-lg rounded-0">                                                                
+                                                        </div>
+                                                        <div class="invalid-feedback">Escriba su usuario.</div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Contraseña</label>
+                                                        <div class="input-group">
+                                                           <span class="btn btn-md"> {%icon 'key'%} </span>
+                                                           <input type="password" name="password" required id="id_password" placeholder="contraseña"  class="form-control form-control-lg rounded-0" required="" autocomplete="new-password">                                                           
+                                                        </div>
+                                                        <div class="invalid-feedback">escriba su contraseña! </div>
+                                                        {% if form.non_field_errors %}
+                                                           <p class="text-center mt-2" style="color:red">
+                                                              {% icon 'alert' %}      
+                                                               Usuario o contraseña incorrectos, prueba de nuevo.
+                                                           </p>
+                                                        {% endif %}                                                        
+                                                    </div>                                                    
+                                                    <button type="submit" class="btn btn-primary btn-lg float-right mt-3" id="btnLogin">Acceder</button>
+                                                </form>
+                                            </div>
+                                            <!--/card-block-->
+                                        </div>
+                                        <!-- /form card login -->
+                    
+                                    </div>
+                    
+                    
+                                </div>
+                                <!--/row-->
+                    
+                            </div>
+                            <!--/col-->
+                        </div>
+                        <!--/row-->
+                    </div>
+                    <!--/container-->
+   </body>
+</html>

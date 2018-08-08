@@ -1,0 +1,59 @@
+.icono50{ 
+    font-size: 35px; 
+    color: blue;
+    margin-bottom: 3px;
+}
+
+.blink_me {
+    animation: blinker 1s linear infinite;
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+
+
+.borde-1px-black{
+   border: 1px solid black !important;
+}
+
+.borde-1px-blue{
+  border: 1px solid blue !important;
+}
+
+.borde-1px-gray{
+  border: 1px solid gray !important;
+}
+
+.borde-1px-silver{
+  border: 1px solid silver !important;
+}
+
+.texto-alerta{
+   color: red !important;
+}
+
+.texto-alerta-blink{
+  color: red !important;
+  animation: blinker 1s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.btn-h{   
+   background-color: light !important;
+   border: 1px solid silver !important;
+}
+
+.select-h{
+  font-family: 'FontAwesome', 'sans-serif';
+}
+
+.border-bottom{
+  border-bottom: 2px solid black;
+}

@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'login',
+    'ckeditor',
+    'django_icons',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +129,22 @@ STATIC_ROOT = os.path.join(BASE_DIR,"static")
 #Ficheros Media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,"media")
+
+#emails
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+    EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+else:
+    #email para producción
+    pass
+
+#fecha
+DATE_FORMAT="d-m-Y"
+USE_L10N = False
+
+
+#auth redirects
+LOGOUT_REDIRECT_URL = 'home'
+
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL ='/login/redirect/'

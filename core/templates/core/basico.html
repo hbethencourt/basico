@@ -1,26 +1,74 @@
 {% load static %}
+{% load icons %}
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico'%}">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title> Basico </title>    
-    <!-- Fuentes -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700,700i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
-    <!-- Estilos -->
-    <link href="{% static 'core/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'core/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'core/css/main.css' %}" rel="stylesheet">    
+    <head>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'core/img/favicon.ico' %} ">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title> Basico </title>    
+        <!-- Fuentes -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700,700i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+        <!-- Estilos -->
+        <link href="{% static 'core/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'core/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'core/css/main.css' %}" rel="stylesheet">    
+        
+        <!-- Font Awesome CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
     
-    <!-- Font Awesome CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    rel="stylesheet"
-    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-    crossorigin="anonymous">
+        <!-- CSS para CKEDITOR -->
+        <link href="{% static 'core/css/custom_ckeditor.css' %}" rel="stylesheet">
+        
+        <!-- CSS personalizados por mi-->
+        <link href="{% static 'core/css/h.css' %}" rel="stylesheet">    
+    
+      </head>
   </head>
   <body>        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container">
+                    <a class="navbar-brand " href="#">                        
+                        <img src="{% static 'core/img/favicon.ico' %}">
+                        BÁSICO APP
+                      </a>  
+                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ned" aria-controls="ned" aria-expanded="false">
+                            <span class="navbar-toggler-icon"></span>
+                      </button>  
+                      <div class="collapse navbar-collapse" id="ned">
+                          <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'home' %}">
+                                    {% icon 'home' %}
+                                    Inicio
+                                </a>
+                            </li>                                                        
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    {% icon 'user' %} Perfil
+                                </a>
+                            </li>
+                            {% if user.is_staff %}                                                                                      
+                                <li class="nav-item">
+                                        <a class="nav-link" href="/admin">
+                                            {% icon 'user-secret' %}
+                                            Admin
+                                        </a>
+                                </li>   
+                            {% endif %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'login:logout' %}">                          
+                                  {% icon 'sign-out' %}
+                                  Salir
+                                </a>
+                            </li>                        
+                      </div>              
+                </div>
+        </nav>
         <div class="content border rounded p-1 m-2" style=""></div>            
             <div class="row">
                 <div class="col"></div>
@@ -33,9 +81,18 @@
                 <div class="col"></div>
             </div>
         </div>        
-        <div class="content border rounded p-1 m-2" style="border: 1px solid gray !important;">
-                PAGINA BASICA DJANGO            
+        <div class="content border rounded p-1 m-2 text-center" style="border: 1px solid gray !important;">
+                PAGINA BASICA DJANGO       
+                <p> Version: {{version}}  </p>   
         </div>
-        PRUEBA DE GITBHUB
+
+
+         <script src="{% static 'core/vendor/jquery/jquery.min.js' %}"></script>
+      <script src="{% static 'core/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'core/js/main.js' %}"></script>
+      <script src="{% static 'core/js/DjangoAjax.js' %}"></script>      
+      <script src="{% static 'core/js/h.js' %}"></script>
+      {% block javascript %} {% endblock %}
+
   </body>
 </html>

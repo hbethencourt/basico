@@ -1,10 +1,12 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
+from login.urls import login_patterns
 
 urlpatterns = [
     path('',include('core.urls')),
     path('admin/', admin.site.urls),    
+    path("login/",include(login_patterns)),
 ]
 
 if settings.DEBUG:
